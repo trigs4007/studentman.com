@@ -10,12 +10,16 @@ int main() {
     struct Student s[50];
     int count = 0;
     int choice;
+    int roll, found;
+
 
     while (1) {
         printf("\n--- Student Record System ---\n");
         printf("1. Add Student\n");
         printf("2. Display Students\n");
-        printf("3. Exit\n");
+        printf("3. Search Student\n");
+        printf("4. Exit\n");
+
         printf("Enter choice: ");
         scanf("%d", &choice);
 
@@ -43,13 +47,27 @@ int main() {
                 }
             }
         }
-        else if (choice == 3) {
+       else if (choice == 3) {
+    printf("Enter roll number to search: ");
+    scanf("%d", &roll);
+
+    found = 0;
+    for (int i = 0; i < count; i++) {
+        if (s[i].roll == roll) {
+            printf("\nStudent Found!\n");
+            printf("Roll: %d\n", s[i].roll);
+            printf("Name: %s\n", s[i].name);
+            printf("Marks: %.2f\n", s[i].marks);
+            found = 1;
             break;
         }
-        else {
-            printf("Invalid choice!\n");
-        }
     }
+
+    if (!found) {
+        printf("Student not found!\n");
+    }
+}
+
 
     return 0;
 }
