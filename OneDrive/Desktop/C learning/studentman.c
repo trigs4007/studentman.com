@@ -66,6 +66,11 @@ int main() {
     if (!found) {
         printf("Student not found!\n");
     }
+           else if (choice == 4) {
+    printf("Exiting program...\n");
+    break;
+}
+
 }
 
 
